@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -8,8 +9,13 @@ const useFetch = () => {
   const fetchData = async (url, method) => {
     try {
       setIsLoading(true);
-      const response = await fetch(url, { method });
+
+      const response = await fetch(url, { method, mode: 'no-cors' });
       const value = await response.json();
+      //const value = await axios.get(url);
+
+      console.log(value);
+
       if (value) {
         setData([...value]);
         setIsLoading(false);
