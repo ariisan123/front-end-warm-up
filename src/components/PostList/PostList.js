@@ -9,7 +9,7 @@ const PostList = () => {
   const { fetchData, isLoading, data } = useFetch();
 
   useEffect(() => {
-    fetchData(endpoints.posts, 'GET');
+    fetchData(endpoints.posts);
   }, []);
 
   return (
@@ -18,7 +18,7 @@ const PostList = () => {
         <Loading />
       ) : (
         <Row>
-          {data.map((item) => (
+          {data.data.map((item) => (
             <PostItem id={item.id} title={item.title} key={item.id} />
           ))}
         </Row>
