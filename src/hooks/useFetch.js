@@ -2,19 +2,16 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const useFetch = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
 
-  const fetchData = async (url, method) => {
+  const fetchData = async (url) => {
     try {
-      setIsLoading(true);
+      const response = await axios.get(url);
 
-      const data = await axios[method.toLowerCase()](url);
-
-      if (data) {
-        setData([...data.data]);
-        console.log(data);
+      if (response) {
+        setData({ ...response });
         setIsLoading(false);
       }
     } catch (err) {
