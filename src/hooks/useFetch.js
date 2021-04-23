@@ -10,14 +10,11 @@ const useFetch = () => {
     try {
       setIsLoading(true);
 
-      const response = await fetch(url, { method, mode: 'no-cors' });
-      const value = await response.json();
-      //const value = await axios.get(url);
+      const data = await axios[method.toLowerCase()](url);
 
-      console.log(value);
-
-      if (value) {
-        setData([...value]);
+      if (data) {
+        setData([...data.data]);
+        console.log(data);
         setIsLoading(false);
       }
     } catch (err) {

@@ -1,7 +1,7 @@
 const endpoints = {
-  posts: 'https://jsonplaceholder.typicode.com/posts',
+  posts: 'http://localhost:8000/api/posts',
   selectPost(id) {
-    return `https://jsonplaceholder.typicode.com/posts/${id}`;
+    return `http://localhost:8000/api/posts/${id}`;
   }
 };
 

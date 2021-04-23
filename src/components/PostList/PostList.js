@@ -4,25 +4,12 @@ import PostItem from './PostItem';
 import useFetch from '../../hooks/useFetch';
 import endpoints from '../../helpers/endpoints';
 import Loading from '../Loading/Loading';
-import axios from 'axios';
 
 const PostList = () => {
   const { fetchData, isLoading, data } = useFetch();
 
   useEffect(() => {
-    //fetchData(endpoints.posts, 'GET');
-    (async () => {
-      const data = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts'
-      );
-      console.log(data);
-    })();
-    //fetch('https://jsonplaceholder.typicode.com/posts', {
-    //mode: 'no-cors'
-    //})
-    //.then((res) => res.json())
-    //.then((data) => console.log(data))
-    //.catch((err) => console.log(err));
+    fetchData(endpoints.posts, 'GET');
   }, []);
 
   return (
