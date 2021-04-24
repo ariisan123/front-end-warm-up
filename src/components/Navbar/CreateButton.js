@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import NewPostModal from '../NewPostModal/NewPostModal';
+import PostModal from '../PostModal/PostModal';
 
 const CreateButton = () => {
   const [modal, setModal] = useState(false);
@@ -14,7 +14,7 @@ const CreateButton = () => {
         <i className="fas fa-edit ml-1"></i>
       </Button>
 
-      <NewPostModal show={modal} setModal={handleModal} />
+      <PostModal show={modal} setModal={handleModal} />
     </React.Fragment>
   );
 };
