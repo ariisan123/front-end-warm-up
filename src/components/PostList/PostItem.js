@@ -12,7 +12,7 @@ const PostItem = ({ id, title }) => {
     <Card style={{ width: '100%' }} border="secondary" className="m-3 mx-xl-5">
       <Card.Body>
         <Card.Title>{capitalize(title)}</Card.Title>
-        <DetailButton />
+        <DetailButton id={id} />
         <EditButton id={id} />
         <DeleteButton id={id} />
       </Card.Body>
